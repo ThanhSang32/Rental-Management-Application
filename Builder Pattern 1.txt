@@ -1,0 +1,115 @@
+interface Contract {
+    void buildContractID();
+    void buildPropertyID();
+    void buildTenantID();
+    void buildRentAmount();
+    Contract signContract();
+}
+
+class PermanentContract implements Contract {
+    private String contractID;
+    private String propertyID;
+    private String tenantID;
+    private double rentAmount;
+
+    @Override
+    public void buildContractID() {
+        this.contractID = "PERM123";
+    }
+    
+    @Override
+    public void buildPropertyID() {
+        this.propertyID = "PROP001";
+    }
+
+    @Override
+    public void buildTenantID() {
+        this.tenantID = "TEN001";
+    }
+    
+    @Override
+    public void buildRentAmount() {
+        this.rentAmount = 1000.00;
+    }
+    
+    @Override
+    public Contract signContract() {
+        return this;
+    }
+}
+
+class LongTermContract implements Contract {
+    private String contractID;
+    private String propertyID;
+    private String tenantID;
+    private double rentAmount;
+
+    @Override
+    public void buildContractID() {
+        this.contractID = "LONG123";
+    }
+    
+    @Override
+    public void buildPropertyID() {
+        this.propertyID = "PROP002";
+    }
+    
+    @Override
+    public void buildTenantID() {
+        this.tenantID = "TEN002";
+    }
+    
+    @Override
+    public void buildRentAmount() {
+        this.rentAmount = 1200.00;
+    }
+    
+    @Override
+    public Contract signContract() {
+        return this;
+    }
+}
+
+class ShortTermContract implements Contract {
+    private String contractID;
+    private String propertyID;
+    private String tenantID;
+    private double rentAmount;
+
+    @Override
+    public void buildContractID() {
+        this.contractID = "SHORT123";
+    }
+    
+    @Override
+    public void buildPropertyID() {
+        this.propertyID = "PROP003";
+    }
+    
+    @Override
+    public void buildTenantID() {
+        this.tenantID = "TEN003";
+    }
+    
+    @Override
+    public void buildRentAmount() {
+        this.rentAmount = 1500.00;
+    }
+    
+    @Override
+    public Contract signContract() {
+        return this;
+    }
+}
+
+class Client {
+    public static void main(String[] args) {
+        Contract contract = new PermanentContract();
+        contract.buildContractID();
+        contract.buildPropertyID();
+        contract.buildTenantID();
+        contract.buildRentAmount();
+        Contract signedContract = contract.signContract();
+        System.out.println("Contract successfully signed!");
+    }
+}
